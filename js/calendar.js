@@ -59,10 +59,12 @@ function getCalendarShow(value){
 		}	
 	}
 	
+	var newDate=new Date(value.getYear()+1900,value.getMonth(),1);
+	var firstday=newDate.getDay();
 	for(var i=1;i<days+1;i++){
-		$($("#"+(i+(week-1))+"")[0]).append("<span class='dayspan'>"+i+"</span>");
+		$($("#"+(i+(firstday-1))+"")[0]).append("<span class='dayspan'>"+i+"</span>");
 	}
-	$($("#"+(day+(week-1))+"")[0]).css({
+	$($("#"+(day+(firstday-1))+"")[0]).css({
 		background: '#AF6046'
 	});
 }
